@@ -6,7 +6,6 @@
   box-sizing: border-box;
   text-decoration: none;
   outline: none; border:none;
-  text-transform: capitalize;
   transition: all .2s linear;
 }
 
@@ -442,9 +441,14 @@ section{
 
 .banner{
   background:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(../images/banner-bg.jpg) no-repeat;
-  background-size: cover;
+  background-size: auto 130vh;
   background-position: center;
   background-attachment: fixed;
+  min-height: 42rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 
   span{
@@ -455,7 +459,6 @@ section{
   h3{
     padding-top: 1rem;
     color:$white;
-    text-transform: uppercase;
     font-size: 3.5rem;
   }
 
@@ -817,6 +820,11 @@ section{
 }
 
 @media (max-width:768px){
+  .banner{
+    background-attachment: scroll;
+    background-size: auto 100%;
+  }
+
   .article-page{
     padding-top: 8rem;
 

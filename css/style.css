@@ -8,7 +8,6 @@
   text-decoration: none;
   outline: none;
   border: none;
-  text-transform: capitalize;
   -webkit-transition: all .2s linear;
   transition: all .2s linear;
 }
@@ -490,9 +489,23 @@ section {
 .banner {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(../images/banner-bg.jpg) no-repeat;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/banner-bg.jpg) no-repeat;
-  background-size: cover;
+  background-size: auto 130vh;
   background-position: center;
   background-attachment: fixed;
+  min-height: 42rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
 }
 
@@ -504,7 +517,6 @@ section {
 .banner h3 {
   padding-top: 1rem;
   color: #fff;
-  text-transform: uppercase;
   font-size: 3.5rem;
 }
 
@@ -765,6 +777,10 @@ section {
 }
 
 @media (max-width: 768px) {
+  .banner {
+    background-attachment: scroll;
+    background-size: auto 100%;
+  }
   #menu-btn {
     display: inline-block;
   }
