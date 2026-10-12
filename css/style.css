@@ -324,11 +324,18 @@ section {
   text-align: center;
 }
 
-.features .box-container .box .content img {
+.features .box-container .box .content img,
+.features .box-container .box .content .feature-icon {
   height: 9rem;
   margin-bottom: 1rem;
   -webkit-filter: invert(1);
           filter: invert(1);
+}
+
+.features .box-container .box .content .feature-icon {
+  display: inline-block;
+  font-size: 7rem;
+  line-height: 9rem;
 }
 
 .features .box-container .box .content h3 {
