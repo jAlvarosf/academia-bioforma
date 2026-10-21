@@ -18,6 +18,38 @@ document.body.appendChild(backToTop);
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+const offlineNotice = document.createElement('div');
+offlineNotice.className = 'offline-notice';
+offlineNotice.setAttribute('role', 'alert');
+offlineNotice.setAttribute('aria-live', 'assertive');
+
+const offlineContent = document.createElement('div');
+offlineContent.className = 'offline-notice-content';
+
+const offlineTitle = document.createElement('h2');
+offlineTitle.textContent = 'Sem conexão com a internet';
+
+const offlineMessage = document.createElement('p');
+offlineMessage.textContent = 'Verifique sua conexão. Quando ela voltar, tente carregar a página novamente.';
+
+const offlineRetry = document.createElement('button');
+offlineRetry.className = 'btn';
+offlineRetry.type = 'button';
+offlineRetry.textContent = 'Tentar novamente';
+offlineRetry.addEventListener('click', () => window.location.reload());
+
+offlineContent.append(offlineTitle, offlineMessage, offlineRetry);
+offlineNotice.appendChild(offlineContent);
+document.body.appendChild(offlineNotice);
+
+function updateOfflineNotice() {
+    offlineNotice.classList.toggle('is-visible', !navigator.onLine);
+}
+
+window.addEventListener('online', updateOfflineNotice);
+window.addEventListener('offline', updateOfflineNotice);
+updateOfflineNotice();
+
 const pageLoader = document.querySelector('.page-loader');
 
 if (pageLoader) {
