@@ -83,6 +83,80 @@ section {
           transform: scale(1.1);
 }
 
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+  background: #000;
+  color: #fff;
+  font-size: 1.6rem;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity .35s ease, visibility .35s ease;
+  transition: opacity .35s ease, visibility .35s ease;
+}
+
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.page-loader .page-loader-logo {
+  width: min(16rem, 40vw);
+  aspect-ratio: 1;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.page-loader .page-loader-spinner {
+  position: relative;
+  width: 3.4rem;
+  height: 3rem;
+  background: #f00;
+  -webkit-clip-path: polygon(50% 0, 100% 100%, 0 100%);
+          clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  -webkit-animation: loader-triangle-spin 1.2s linear infinite;
+          animation: loader-triangle-spin 1.2s linear infinite;
+}
+
+.page-loader .page-loader-spinner::after {
+  content: '';
+  position: absolute;
+  inset: .5rem .5rem .6rem;
+  background: #000;
+  -webkit-clip-path: polygon(50% 0, 100% 100%, 0 100%);
+          clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+@-webkit-keyframes loader-triangle-spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-triangle-spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -99,7 +173,7 @@ section {
           justify-content: space-between;
   padding: 0 9%;
   z-index: 10000;
-  background: #000;
+  background: rgba(0, 0, 0, 0.85);
 }
 
 .header .logo {
@@ -140,12 +214,13 @@ section {
 }
 
 .home {
+  width: 100%;
   padding: 0;
   margin-top: 5rem;
 }
 
 .home .slide {
-  min-height: 70vh;
+  min-height: calc(100vh - 5rem);
   background-size: cover !important;
   background-position: center !important;
   padding: 2rem 9%;
@@ -777,10 +852,6 @@ section {
 }
 
 @media (max-width: 768px) {
-  .banner {
-    background-attachment: scroll;
-    background-size: auto 100%;
-  }
   #menu-btn {
     display: inline-block;
   }
@@ -1045,6 +1116,9 @@ section {
     opacity: 1;
     -webkit-transform: none;
             transform: none;
+  }
+  .banner {
+    background-attachment: scroll;
   }
 }
 /*# sourceMappingURL=style.css.map */
