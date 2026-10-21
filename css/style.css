@@ -998,7 +998,7 @@ section {
 .back-to-top {
   position: fixed;
   right: 2.5rem;
-  bottom: 2.5rem;
+  bottom: 5rem;
   z-index: 10001;
   display: grid;
   place-items: center;
