@@ -242,7 +242,8 @@ section {
   display: block;
 }
 
-.home .slide .content h3 {
+.home .slide .content h1,
+.home .slide .content h2 {
   font-size: 5rem;
   color: #fff;
   padding: 1rem 0;
@@ -846,7 +847,8 @@ section {
   .home .slide .content {
     width: 50rem;
   }
-  .home .slide .content h3 {
+  .home .slide .content h1,
+  .home .slide .content h2 {
     font-size: 4rem;
   }
 }

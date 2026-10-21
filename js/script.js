@@ -90,7 +90,7 @@ if (typeof Swiper !== 'undefined') {
             speed: 800,
             effect: 'fade',
             grabCursor: true,
-            loop: true,
+            rewind: true,
             centeredSlides: true,
             autoplay: prefersReducedMotion.matches ? false : {
                 delay: 5000,
